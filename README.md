@@ -54,7 +54,6 @@ security-dashboard/
 ├── docker/ # Dockerfile + Nginx configuration
 └── README.md
 
-
 ---
 
 ## 🔗 API Contracts & Mock Fallback
@@ -73,14 +72,11 @@ This ensures demos and tests continue working smoothly.
 
 ## 🐳 Docker Support
 
+```bash
 docker build -t sentinel-dashboard -f docker/Dockerfile .
 docker run -p 8080:80 --env-file .env sentinel-dashboard
+The image builds the React app and serves it via Nginx.
+You can map /api to your own backend using the provided proxy configuration.
 
-
-The image builds the React app and serves it via Nginx.  
-You can map `/api` to your own backend using the provided proxy configuration.
-
----
-
-**Note:** This is a **student learning project**, created to practice modern front-end development concepts like real-time communication, state management, and UI design.  
-Feel free to fork, improve, and adapt it to your own learning goals.  
+Note: This is a student learning project, created to practice modern front-end development concepts like real-time communication, state management, and UI design.
+Feel free to fork, improve, and adapt it to your own learning goals.
