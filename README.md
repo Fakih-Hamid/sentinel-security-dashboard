@@ -82,7 +82,5 @@ You can map `/api` to your own backend using the provided proxy configuration.
 
 ---
 
----
-
 **Note:** This is a **student learning project**, created to practice modern front-end development concepts like real-time communication, state management, and UI design.  
 Feel free to fork, improve, and adapt it to your own learning goals.  
