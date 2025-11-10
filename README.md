@@ -40,41 +40,40 @@ If the backend is unreachable, the React Query hooks automatically fall back to 
 - **Tooling:** TypeScript (strict), ESLint 9, Prettier, Vitest, Storybook-ready  
 - **Deployment:** Multi-stage Dockerfile + Nginx (see `docker/`)
 
-security-dashboard/
-├── public/ # Manifest, service worker, static assets
-├── src/
-│ ├── components/ # Layouts, charts, widgets, cards
-│ ├── hooks/ # React Query hooks, WebSocket, local storage
-│ ├── pages/ # Dashboard, Alerts, Players, Analytics
-│ ├── services/ # API client, auth helpers
-│ ├── styles/ # Theme and global styles
-│ ├── types/ # Shared TypeScript models
-│ └── utils/ # Constants, formatters, helpers
-├── tests/ # Vitest setup and sample tests
-├── docker/ # Dockerfile + Nginx configuration
-└── README.md
-
 ---
 
-## 🔗 API Contracts & Mock Fallback
+## 📁 Project Structure
 
-| Endpoint | Purpose |
-| --- | --- |
-| `GET /api/security/dashboard` | Returns KPIs, anomaly data, and recent alerts |
-| `GET /api/security/player-risk/:id` | Fetches detailed player risk profile |
-| `GET /api/players/suspicious` | Lists players flagged for review |
-| WebSocket (`VITE_WS_URL`) | Pushes alerts in real time |
+```plaintext
+security-dashboard/
+├── public/                # Manifest, service worker, static assets
+├── src/
+│   ├── components/        # Layouts, charts, widgets, cards
+│   ├── hooks/             # React Query hooks, WebSocket, local storage
+│   ├── pages/             # Dashboard, Alerts, Players, Analytics
+│   ├── services/          # API client, auth helpers
+│   ├── styles/            # Theme and global styles
+│   ├── types/             # Shared TypeScript models
+│   └── utils/             # Constants, formatters, helpers
+├── tests/                 # Vitest setup and sample tests
+├── docker/                # Dockerfile + Nginx configuration
+└── README.md
+```
 
-Each API call is wrapped with a helper called `withMockFallback`, which provides curated mock data when the backend is down.  
+🔗 API Contracts & Mock Fallback
+Endpoint	Purpose
+GET /api/security/dashboard	Returns KPIs, anomaly data, and recent alerts
+GET /api/security/player-risk/:id	Fetches detailed player risk profile
+GET /api/players/suspicious	Lists players flagged for review
+WebSocket (VITE_WS_URL)	Pushes alerts in real time
+
+Each API call is wrapped with a helper called withMockFallback, which provides curated mock data when the backend is down.
 This ensures demos and tests continue working smoothly.
 
----
-
-## 🐳 Docker Support
-
-```bash
+🐳 Docker Support
 docker build -t sentinel-dashboard -f docker/Dockerfile .
 docker run -p 8080:80 --env-file .env sentinel-dashboard
+
 The image builds the React app and serves it via Nginx.
 You can map /api to your own backend using the provided proxy configuration.
 
