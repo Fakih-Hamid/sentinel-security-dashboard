@@ -1,0 +1,22 @@
+{
+  "short_name": "Sentinel",
+  "name": "Sentinel - Game Security Operations Center",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#121826",
+  "background_color": "#0b1020",
+  "description": "Real-time security monitoring for anti-cheat operations in AAA gaming."
+}
+
