@@ -60,19 +60,26 @@ security-dashboard/
 └── README.md
 ```
 
-🔗 API Contracts & Mock Fallback
-Endpoint	Purpose
-GET /api/security/dashboard	Returns KPIs, anomaly data, and recent alerts
-GET /api/security/player-risk/:id	Fetches detailed player risk profile
-GET /api/players/suspicious	Lists players flagged for review
-WebSocket (VITE_WS_URL)	Pushes alerts in real time
+## 🔗 API Contracts & Mock Fallback
 
-Each API call is wrapped with a helper called withMockFallback, which provides curated mock data when the backend is down.
+| Endpoint | Purpose |
+| --- | --- |
+| `GET /api/security/dashboard` | Returns KPIs, anomaly data, and recent alerts |
+| `GET /api/security/player-risk/:id` | Fetches detailed player risk profile |
+| `GET /api/players/suspicious` | Lists players flagged for review |
+| WebSocket (`VITE_WS_URL`) | Pushes alerts in real time |
+
+Each API call is wrapped with a helper called `withMockFallback`, which provides curated mock data when the backend is down.  
 This ensures demos and tests continue working smoothly.
 
-🐳 Docker Support
+---
+
+## 🐳 Docker Support
+
+```bash
 docker build -t sentinel-dashboard -f docker/Dockerfile .
 docker run -p 8080:80 --env-file .env sentinel-dashboard
+
 
 The image builds the React app and serves it via Nginx.
 You can map /api to your own backend using the provided proxy configuration.
