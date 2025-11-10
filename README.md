@@ -1,6 +1,6 @@
 # Sentinel Security Dashboard
 
-**Sentinel** is a small student project exploring what a modern security monitoring console for an online game could look like.  
+**Sentinel** is a student project exploring what a modern security monitoring console for an online game could look like.  
 It is built with **Vite**, **React**, and **TypeScript**, and connects to a simulated security API (or a mock layer when offline).  
 The goal is to learn how to design responsive dashboards, manage real-time data, and handle alert streams efficiently.
 
